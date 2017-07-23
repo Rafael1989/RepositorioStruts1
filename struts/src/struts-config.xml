@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--  <!DOCTYPE struts-config PUBLIC 
+	"-//Apache Software Foundation//
+	DTD Struts Configuration 1.0//EN"
+	"http://jakarta.apache.org/struts/
+	dtds/struts-config_1_0.dtd"/>-->
+
+<struts-config>
+	<form-beans>
+		<form-bean name="ContatoForm" type="br.com.caelum.struts.form.ContatoForm"/>
+		<form-bean name="RemoveContatoForm" type="br.com.caelum.struts.form.RemoveContatoForm"/>
+		<form-bean name="MostraContatoForm" type="br.com.caelum.struts.form.MostraContatoForm"/>
+		<form-bean name="AlteraContatoForm" type="br.com.caelum.struts.form.AlteraContatoForm"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/novoContato" name="ContatoForm" input="/novo.jsp" type="br.com.caelum.struts.action.AdicionaContatoAction" scope="request">
+			<forward name="ok" path="/listaContatos.do"/>
+		</action>
+		<action path="/teste" type="br.com.caelum.struts.action.TesteSimplesAction">
+			<forward name="ok" path="/exemplo.jsp"/>
+		</action>
+		<action path="/removeContato" type="br.com.caelum.struts.action.RemoveContatoAction">
+			<forward name="ok" path="/listaContatos.do"/>
+		</action>
+		<action path="/mostraContato" type="br.com.caelum.struts.action.MostraContatoAction">
+			<forward name="ok" path="/mostraContato.jsp"/>
+		</action>
+		<action path="/alteraContato" type="br.com.caelum.struts.action.AlteraContatoAction">
+			<forward name="ok" path="/listaContatos.do"/>
+		</action>
+		<action path="mudaIdioma" type="br.com.caelum.struts.action.MudaIdiomaAction">
+			<forward name="ok" path="testa-mensagens.jsp"/>
+		</action>
+		<action path="/listaContatos" type="br.com.caelum.struts.action.ListaContatosAction">
+			<forward name="lista" path="/lista.jsp"/>
+			<forward name="vazia" path="/lista-vazia.jsp"/>
+		</action>
+	</action-mappings>
+	<message-resources parameter="MessageResources"/>
+</struts-config>
+
